@@ -1,6 +1,4 @@
 {
-  "name": "first-project",
-  "displayName": "first-project",
   "expo": {
     "name": "first-project",
     "slug": "first-project",
@@ -8,5 +6,6 @@
     "assetBundlePatterns": [
       "**/*"
     ]
-  }
+  },
+  "name": "first-project"
 }
