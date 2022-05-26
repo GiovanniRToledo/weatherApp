@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image, Icon } from "react-native";
 
 class Forecast extends Component {
   render() {
@@ -13,6 +13,12 @@ class Forecast extends Component {
           Current conditions: {this.props.description}
         </Text>
         <Text style={styles.bigText}>
+          {this.props.icon}
+        </Text>
+        <img src = {'https://openweathermap.org/img/wn/' + this.props.icon + '.png'}
+             style={{ width: 100, height: 200 }}
+        />
+        <Text style={styles.bigText}>
           {this.props.temp}°F
         </Text>
       </View>
@@ -21,7 +27,7 @@ class Forecast extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: { height: 130 },
+  container: { height: 130, alignItems: 'center', },
   bigText: {
     flex: 2,
     fontSize: 20,

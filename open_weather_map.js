@@ -12,7 +12,9 @@ function fetchForecast(zip) {
       return {
         main: responseJSON.weather[0].main,
         description: responseJSON.weather[0].description,
+        icon: responseJSON.weather[0].icon,
         temp: responseJSON.main.temp
+
       };
     })
     .catch(error => {

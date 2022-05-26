@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { StyleSheet, Text, View, TextInput, ImageBackground } from "react-native";
+import { StyleSheet, Text, View, TextInput, ImageBackground, Image } from "react-native";
 import Forecast from "./Forecast";
 import OpenWeatherMap from "./open_weather_map";
 
@@ -12,6 +12,10 @@ class WeatherProject extends Component {
 
   _handleTextChange = event => {
     let zip = event.nativeEvent.text;
+    if(zip.length != 5 || isNaN(zip) == true)
+    {
+        window.alert("Please enter a 5 digit zip code.");
+    } else
     OpenWeatherMap.fetchForecast(zip).then(forecast => {
       console.log(forecast);
       this.setState({ forecast: forecast });
@@ -26,6 +30,7 @@ class WeatherProject extends Component {
            main={this.state.forecast.main}
            description={this.state.forecast.description}
            temp={Math.round(this.state.forecast.temp* 10) / 10}
+           icon={this.state.forecast.icon}
          />
        );
      }
@@ -60,7 +65,7 @@ class WeatherProject extends Component {
 const baseFontSize = 16;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: "center", paddingTop: 30 },
+  container: { flex: 1, justifyContent: "center", alignItems: "center", paddingTop: 30 },
   backdrop: { flex: 1, flexDirection: "column" },
   overlay: {
     paddingTop: 5,
