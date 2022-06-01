@@ -10,12 +10,12 @@ class Forecast extends Component {
           {this.props.main}
         </Text>
         <Text style={styles.mainText}>
-          Current conditions: {this.props.description}
+          Current conditions:
         </Text>
-        <Text style={styles.bigText}>
-          {this.props.icon}
+        <Text style={styles.mainText}>
+          {this.props.description}
         </Text>
-        <img src = {'https://openweathermap.org/img/wn/' + this.props.icon + '.png'}
+        <img src = {'https://openweathermap.org/img/wn/' + this.props.icon + '@2x.png'}
              style={{ width: 100, height: 200 }}
         />
         <Text style={styles.bigText}>
